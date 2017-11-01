@@ -5,19 +5,19 @@
 #include <sstream>
 using namespace std;
 string currdate="";
-namespace patch
+namespace cur
 {
-    template < typename T > std::string to_string( const T& n )
+    template < typename T > string to_string( const T& n )
     {
-        ostringstream stm ;
-        stm << n ;
-        return stm.str() ;
+        ostringstream st ;
+        st << n ;
+        return st.str() ;
     }
 }
 string getDate(){
 	time_t t=time(0);
     struct tm * now = localtime( & t );
-    string date=patch::to_string(now->tm_mday) +"-"+ patch::to_string(now->tm_mon+1)+"-"+patch::to_string(now->tm_year+1900);
+    string date=cur::to_string(now->tm_mday) +"-"+ cur::to_string(now->tm_mon+1)+"-"+cur::to_string(now->tm_year+1900);
     return date;
 }
 int main(int argc, char *argv[]){
